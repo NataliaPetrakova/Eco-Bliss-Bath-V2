@@ -1,27 +1,116 @@
-# EcoBlissBath
+# Eco Bliss Bath V2 — Tests automatisés
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Tests automatisés E2E avec **Cypress** pour le projet Eco Bliss Bath, un site e-commerce de produits de beauté éco-responsables.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prérequis
 
-## Code scaffolding
+- [Node.js](https://nodejs.org/) (v18 ou supérieur)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Git](https://git-scm.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Installation du projet
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 1. Cloner le dépôt
 
-## Running unit tests
+```bash
+git clone https://github.com/TON_USERNAME/Eco-Bliss-Bath-V2.git
+cd Eco-Bliss-Bath-V2
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 2. Lancer le backend (API + base de données)
 
-## Running end-to-end tests
+```bash
+docker compose up -d
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> Attendre que les conteneurs soient bien démarrés avant de continuer.
 
-## Further help
+### 3. Lancer le frontend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+cd frontend
+npm install
+npm start
+```
+
+L'application est accessible sur : `http://localhost:4200`
+
+---
+
+## Lancer les tests
+
+Les tests se trouvent dans le dossier `frontend/cypress/e2e/`.
+
+### Ouvrir l'interface Cypress (mode interactif)
+
+```bash
+cd frontend
+npx cypress open
+```
+
+Puis sélectionner un fichier de test dans l'interface.
+
+### Lancer tous les tests en ligne de commande (mode headless)
+
+```bash
+cd frontend
+npx cypress run
+```
+
+---
+
+## Fichiers de tests
+
+| Fichier       | Description                                      |
+| ------------- | ------------------------------------------------ |
+| `api.cy.js`   | Tests des endpoints de l'API                     |
+| `smoke.cy.js` | Smoke tests des fonctionnalités de base          |
+| `xss.cy.js`   | Test de la faille XSS dans l'espace commentaires |
+| `login.cy.js` | Scénario fonctionnel — Connexion                 |
+| `cart.cy.js`  | Scénario fonctionnel — Panier                    |
+
+---
+
+## Générer un rapport de tests
+
+Pour générer un rapport HTML après l'exécution des tests :
+
+### 1. Installer Mochawesome
+
+```bash
+cd frontend
+npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+```
+
+### 2. Lancer les tests avec le reporter
+
+```bash
+npx cypress run --reporter mochawesome
+```
+
+### 3. Consulter le rapport
+
+Le rapport est généré dans le dossier `frontend/cypress/reports/`.
+
+---
+
+## Identifiants de test
+
+| Champ        | Valeur          |
+| ------------ | --------------- |
+| Email        | `test2@test.fr` |
+| Mot de passe | `testtest`      |
+
+---
+
+## Stack technique
+
+- **Frontend** : Angular, Node.js
+- **Backend** : Symfony (PHP)
+- **Base de données** : MariaDB 11.7.2
+- **Tests** : Cypress (JavaScript, E2E)
+- **Navigateur** : Chrome
