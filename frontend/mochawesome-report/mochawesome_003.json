@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2026-04-08T21:51:47.912Z",
-    "end": "2026-04-08T21:51:49.274Z",
-    "duration": 1362,
+    "start": "2026-04-08T22:28:43.885Z",
+    "end": "2026-04-08T22:28:45.268Z",
+    "duration": 1383,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "52e60919-a275-4044-84cc-cbdfc5b61ab3",
+      "uuid": "51a433f9-9161-473f-9a84-41b6e35e4769",
       "title": "",
       "fullFile": "cypress/e2e/smoke.cy.js",
       "file": "cypress/e2e/smoke.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "cdf9ff49-4e40-40c8-84b1-65b5c63b48cf",
+          "uuid": "82faf658-94ff-42e3-8ba4-3f4a324ad060",
           "title": "Smoke Tests",
           "fullFile": "",
           "file": "",
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(\"/#/login\");\ncy.get('[data-cy=\"login-input-username\"]').should(\"be.visible\");\ncy.get('input[type=\"password\"]').should(\"be.visible\");\ncy.get('[data-cy=\"login-submit\"]').should(\"be.visible\");",
               "err": {},
-              "uuid": "9bd16e22-9025-4634-aad0-57ad9798f842",
-              "parentUUID": "cdf9ff49-4e40-40c8-84b1-65b5c63b48cf",
+              "uuid": "52359bb3-02d2-498f-8d40-367b5ce0dbea",
+              "parentUUID": "82faf658-94ff-42e3-8ba4-3f4a324ad060",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Le bouton \"Ajouter au panier\" est visible sur une fiche produit quand connecté",
               "fullTitle": "Smoke Tests Le bouton \"Ajouter au panier\" est visible sur une fiche produit quand connecté",
               "timedOut": null,
-              "duration": 1195,
+              "duration": 1216,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.loginByForm();\ncy.visit(\"/#/products/5\");\ncy.contains(\"Ajouter au panier\").should(\"be.visible\");",
               "err": {},
-              "uuid": "e8fc71a3-ea59-424f-aaf9-2988587e4700",
-              "parentUUID": "cdf9ff49-4e40-40c8-84b1-65b5c63b48cf",
+              "uuid": "139a20a7-dc2d-4a2d-a701-4c256880fdb2",
+              "parentUUID": "82faf658-94ff-42e3-8ba4-3f4a324ad060",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9bd16e22-9025-4634-aad0-57ad9798f842",
-            "e8fc71a3-ea59-424f-aaf9-2988587e4700"
+            "52359bb3-02d2-498f-8d40-367b5ce0dbea",
+            "139a20a7-dc2d-4a2d-a701-4c256880fdb2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1349,
+          "duration": 1370,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

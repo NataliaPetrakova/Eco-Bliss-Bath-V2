@@ -20,7 +20,7 @@ describe("Scénario fonctionnel - Panier", () => {
     cy.visit("/#/products/5");
     cy.contains("en stock").should("be.visible");
     cy.contains("Ajouter au panier").click();
-    cy.wait(1000);
+    // Sans cy.wait() pour tester si le timing est la cause
     cy.visit("/#/cart");
     cy.contains("Votre panier est vide").should("not.exist");
     cy.contains("Commande").should("be.visible");

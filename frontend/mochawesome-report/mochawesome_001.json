@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-04-08T21:51:39.672Z",
-    "end": "2026-04-08T21:51:44.710Z",
-    "duration": 5038,
+    "start": "2026-04-08T22:28:35.654Z",
+    "end": "2026-04-08T22:28:40.726Z",
+    "duration": 5072,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "897c1bca-3094-4ee5-864d-53d90931e8f5",
+      "uuid": "a5368390-4d75-4eee-9dc7-c422b174eef7",
       "title": "",
       "fullFile": "cypress/e2e/cart.cy.js",
       "file": "cypress/e2e/cart.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0143e35e-51ac-46be-907a-9e9fa714056a",
+          "uuid": "80177646-6d27-466d-a9cf-e94dbffd9090",
           "title": "Scénario fonctionnel - Panier",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Ajouter un produit au panier",
               "fullTitle": "Scénario fonctionnel - Panier Ajouter un produit au panier",
               "timedOut": null,
-              "duration": 1635,
+              "duration": 1646,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(\"/#/products/5\");\ncy.contains(\"en stock\").should(\"be.visible\");\ncy.contains(\"Ajouter au panier\").click();\ncy.contains(\"Mon panier\").should(\"be.visible\");",
               "err": {},
-              "uuid": "51a9f8fd-8d2e-4194-b7ec-f74f5d9f118a",
-              "parentUUID": "0143e35e-51ac-46be-907a-9e9fa714056a",
+              "uuid": "3e4af325-d868-4d1c-9b47-51274c24870d",
+              "parentUUID": "80177646-6d27-466d-a9cf-e94dbffd9090",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Le panier affiche la page commande",
               "fullTitle": "Scénario fonctionnel - Panier Le panier affiche la page commande",
               "timedOut": null,
-              "duration": 1115,
+              "duration": 1148,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.visit(\"/#/cart\");\ncy.contains(\"Commande\").should(\"be.visible\");\ncy.contains(\"Panier\").should(\"be.visible\");",
               "err": {},
-              "uuid": "f3101e14-fcaa-477b-a910-76562159def0",
-              "parentUUID": "0143e35e-51ac-46be-907a-9e9fa714056a",
+              "uuid": "c9a9f627-ff94-40d4-9fb2-da4df8065506",
+              "parentUUID": "80177646-6d27-466d-a9cf-e94dbffd9090",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Valider une commande depuis le panier",
               "fullTitle": "Scénario fonctionnel - Panier Valider une commande depuis le panier",
               "timedOut": null,
-              "duration": 2263,
+              "duration": 2260,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.visit(\"/#/products/5\");\ncy.contains(\"en stock\").should(\"be.visible\");\ncy.contains(\"Ajouter au panier\").click();\ncy.wait(1000);\ncy.visit(\"/#/cart\");\ncy.contains(\"Votre panier est vide\").should(\"not.exist\");\ncy.contains(\"Commande\").should(\"be.visible\");",
               "err": {},
-              "uuid": "5d13a4e8-8e5a-4e70-a2d3-b0d7be63a8d8",
-              "parentUUID": "0143e35e-51ac-46be-907a-9e9fa714056a",
+              "uuid": "817338fb-1eee-404b-9a74-005708b81a39",
+              "parentUUID": "80177646-6d27-466d-a9cf-e94dbffd9090",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "51a9f8fd-8d2e-4194-b7ec-f74f5d9f118a",
-            "f3101e14-fcaa-477b-a910-76562159def0",
-            "5d13a4e8-8e5a-4e70-a2d3-b0d7be63a8d8"
+            "3e4af325-d868-4d1c-9b47-51274c24870d",
+            "c9a9f627-ff94-40d4-9fb2-da4df8065506",
+            "817338fb-1eee-404b-9a74-005708b81a39"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5013,
+          "duration": 5054,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

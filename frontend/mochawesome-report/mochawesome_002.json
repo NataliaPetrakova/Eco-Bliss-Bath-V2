@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2026-04-08T21:51:45.274Z",
-    "end": "2026-04-08T21:51:47.366Z",
-    "duration": 2092,
+    "start": "2026-04-08T22:28:41.279Z",
+    "end": "2026-04-08T22:28:43.339Z",
+    "duration": 2060,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1b2f30a4-55f0-4687-85a4-cba8d1faea57",
+      "uuid": "0d11673f-1b86-496e-b3da-978bbb6e334c",
       "title": "",
       "fullFile": "cypress/e2e/login.cy.js",
       "file": "cypress/e2e/login.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "fbed7af5-f496-48af-9a10-28c1cc94d7d1",
+          "uuid": "94fa185c-ba8a-4730-9ec1-4c5f5acae193",
           "title": "Scénario fonctionnel - Connexion",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "La page de connexion affiche bien le formulaire",
               "fullTitle": "Scénario fonctionnel - Connexion La page de connexion affiche bien le formulaire",
               "timedOut": null,
-              "duration": 159,
+              "duration": 161,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get('[data-cy=\"login-input-username\"]').should(\"be.visible\");\ncy.get('input[type=\"password\"]').should(\"be.visible\");\ncy.get('[data-cy=\"login-submit\"]').should(\"be.visible\");",
               "err": {},
-              "uuid": "c09a9a26-ff89-43de-ad46-7325ec376be3",
-              "parentUUID": "fbed7af5-f496-48af-9a10-28c1cc94d7d1",
+              "uuid": "1d77f58c-e8be-46de-95e7-292f18d4a1ae",
+              "parentUUID": "94fa185c-ba8a-4730-9ec1-4c5f5acae193",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Connexion réussie avec des identifiants valides",
               "fullTitle": "Scénario fonctionnel - Connexion Connexion réussie avec des identifiants valides",
               "timedOut": null,
-              "duration": 1213,
+              "duration": 1160,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.fixture(\"credentials\").then(credentials => {\n  cy.get('[data-cy=\"login-input-username\"]').type(credentials.email);\n  cy.get('input[type=\"password\"]').type(credentials.password);\n  cy.get('[data-cy=\"login-submit\"]').click();\n  cy.contains(\"Déconnexion\", {\n    timeout: 10000\n  }).should(\"be.visible\");\n  cy.contains(\"Mon panier\").should(\"be.visible\");\n});",
               "err": {},
-              "uuid": "875d2ef2-00a2-46df-971c-45a875b71587",
-              "parentUUID": "fbed7af5-f496-48af-9a10-28c1cc94d7d1",
+              "uuid": "0a3d7f26-f41b-4dbd-9f4d-66332e1bab2d",
+              "parentUUID": "94fa185c-ba8a-4730-9ec1-4c5f5acae193",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "Connexion échouée avec des identifiants invalides",
               "fullTitle": "Scénario fonctionnel - Connexion Connexion échouée avec des identifiants invalides",
               "timedOut": null,
-              "duration": 677,
+              "duration": 697,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.get('[data-cy=\"login-input-username\"]').type(\"mauvais@email.fr\");\ncy.get('input[type=\"password\"]').type(\"mauvaismdp\");\ncy.get('[data-cy=\"login-submit\"]').click();\ncy.url().should(\"include\", \"/login\");",
               "err": {},
-              "uuid": "11b35b7a-e3b3-4b14-a12f-db33de5cd1d4",
-              "parentUUID": "fbed7af5-f496-48af-9a10-28c1cc94d7d1",
+              "uuid": "b89eeb1e-1441-4541-95b8-e20dad0629bc",
+              "parentUUID": "94fa185c-ba8a-4730-9ec1-4c5f5acae193",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c09a9a26-ff89-43de-ad46-7325ec376be3",
-            "875d2ef2-00a2-46df-971c-45a875b71587",
-            "11b35b7a-e3b3-4b14-a12f-db33de5cd1d4"
+            "1d77f58c-e8be-46de-95e7-292f18d4a1ae",
+            "0a3d7f26-f41b-4dbd-9f4d-66332e1bab2d",
+            "b89eeb1e-1441-4541-95b8-e20dad0629bc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2049,
+          "duration": 2018,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
