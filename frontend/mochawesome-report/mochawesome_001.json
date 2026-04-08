@@ -1,0 +1,232 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 4,
+    "pending": 0,
+    "failures": 3,
+    "start": "2026-04-08T21:19:43.572Z",
+    "end": "2026-04-08T21:19:48.134Z",
+    "duration": 4562,
+    "testsRegistered": 7,
+    "passPercent": 57.14285714285714,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0343971d-77c7-49b1-affa-4ee3112146b0",
+      "title": "",
+      "fullFile": "cypress/e2e/api.cy.js",
+      "file": "cypress/e2e/api.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+          "title": "Tests API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET /orders sans token doit retourner 401",
+              "fullTitle": "Tests API GET /orders sans token doit retourner 401",
+              "timedOut": null,
+              "duration": 538,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${baseUrl}/orders`,\n  failOnStatusCode: false\n}).then(resp => {\n  expect(resp.status).to.eq(401);\n});",
+              "err": {},
+              "uuid": "d27d6121-798a-4091-8813-666e07910980",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /orders connecté doit retourner 200",
+              "fullTitle": "Tests API GET /orders connecté doit retourner 200",
+              "timedOut": null,
+              "duration": 650,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${baseUrl}/orders`,\n  headers: {\n    Authorization: `Bearer ${token}`\n  },\n  failOnStatusCode: false\n}).then(resp => {\n  // Bug connu : retourne 404 au lieu de 200\n  expect(resp.status).to.eq(200);\n});",
+              "err": {
+                "message": "AssertionError: expected 404 to equal 200",
+                "estack": "AssertionError: expected 404 to equal 200\n    at Context.eval (webpack://eco-bliss-bath/./cypress/e2e/api.cy.js:34:29)\n    at getRet (http://localhost:4200/__cypress/runner/cypress_runner.js:122798:20)\n    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:4200/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:4200/__cypress/runner/cypress_runner.js:122809:66)\n    at Context.then (http://localhost:4200/__cypress/runner/cypress_runner.js:123060:21)",
+                "diff": "- 404\n+ 200\n"
+              },
+              "uuid": "550275d2-84c9-49a2-84cf-50e4e9f6bccf",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET /products/{id} doit retourner la fiche produit",
+              "fullTitle": "Tests API GET /products/{id} doit retourner la fiche produit",
+              "timedOut": null,
+              "duration": 657,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `${baseUrl}/products/1`,\n  headers: {\n    Authorization: `Bearer ${token}`\n  },\n  failOnStatusCode: false\n}).then(resp => {\n  // Bug connu : retourne 404 au lieu de 200\n  expect(resp.status).to.eq(200);\n  expect(resp.body).to.have.property(\"name\");\n  expect(resp.body).to.have.property(\"price\");\n});",
+              "err": {
+                "message": "AssertionError: expected 404 to equal 200",
+                "estack": "AssertionError: expected 404 to equal 200\n    at Context.eval (webpack://eco-bliss-bath/./cypress/e2e/api.cy.js:46:29)\n    at getRet (http://localhost:4200/__cypress/runner/cypress_runner.js:122798:20)\n    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:4200/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:4200/__cypress/runner/cypress_runner.js:122809:66)\n    at Context.then (http://localhost:4200/__cypress/runner/cypress_runner.js:123060:21)",
+                "diff": "- 404\n+ 200\n"
+              },
+              "uuid": "8e78c672-7a6e-42d6-98da-201dac1cbaf0",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /login utilisateur inconnu doit retourner 401",
+              "fullTitle": "Tests API POST /login utilisateur inconnu doit retourner 401",
+              "timedOut": null,
+              "duration": 525,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: `${baseUrl}/login`,\n  body: {\n    username: \"inconnu@test.fr\",\n    password: \"wrongpassword\"\n  },\n  failOnStatusCode: false\n}).then(resp => {\n  expect(resp.status).to.eq(401);\n});",
+              "err": {},
+              "uuid": "bf74bf15-9d4f-474e-8b73-0f29dcfd7f7a",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /login utilisateur connu doit retourner 200",
+              "fullTitle": "Tests API POST /login utilisateur connu doit retourner 200",
+              "timedOut": null,
+              "duration": 912,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: `${baseUrl}/login`,\n  body: credentials\n}).then(resp => {\n  expect(resp.status).to.eq(200);\n  expect(resp.body).to.have.property(\"token\");\n});",
+              "err": {},
+              "uuid": "7434a62e-211f-4999-b926-0aa1fa395fdd",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT /orders/add doit ajouter un produit au panier",
+              "fullTitle": "Tests API PUT /orders/add doit ajouter un produit au panier",
+              "timedOut": null,
+              "duration": 650,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"PUT\",\n  url: `${baseUrl}/orders/add`,\n  headers: {\n    Authorization: `Bearer ${token}`\n  },\n  body: {\n    product: \"/api/products/1\",\n    quantity: 1\n  },\n  failOnStatusCode: false\n}).then(resp => {\n  // Bug connu : retourne 400 au lieu de 200\n  expect(resp.status).to.eq(200);\n});",
+              "err": {
+                "message": "AssertionError: expected 400 to equal 200",
+                "estack": "AssertionError: expected 400 to equal 200\n    at Context.eval (webpack://eco-bliss-bath/./cypress/e2e/api.cy.js:83:29)\n    at getRet (http://localhost:4200/__cypress/runner/cypress_runner.js:122798:20)\n    at tryCatcher (http://localhost:4200/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:4200/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:4200/__cypress/runner/cypress_runner.js:122809:66)\n    at Context.then (http://localhost:4200/__cypress/runner/cypress_runner.js:123060:21)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "e545b6ef-fb15-46cc-aecb-83a97609bea5",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST /reviews doit ajouter un avis",
+              "fullTitle": "Tests API POST /reviews doit ajouter un avis",
+              "timedOut": null,
+              "duration": 557,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: `${baseUrl}/reviews`,\n  headers: {\n    Authorization: `Bearer ${token}`\n  },\n  body: {\n    title: \"Super produit\",\n    comment: \"Très bon savon !\",\n    rating: 5\n  }\n}).then(resp => {\n  expect(resp.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "640ed3ed-8758-4c41-8893-d90fa0afaddf",
+              "parentUUID": "c4ca61ac-f9ab-4b78-b8c7-e5b7bedb1140",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d27d6121-798a-4091-8813-666e07910980",
+            "bf74bf15-9d4f-474e-8b73-0f29dcfd7f7a",
+            "7434a62e-211f-4999-b926-0aa1fa395fdd",
+            "640ed3ed-8758-4c41-8893-d90fa0afaddf"
+          ],
+          "failures": [
+            "550275d2-84c9-49a2-84cf-50e4e9f6bccf",
+            "8e78c672-7a6e-42d6-98da-201dac1cbaf0",
+            "e545b6ef-fb15-46cc-aecb-83a97609bea5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4489,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
